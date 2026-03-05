@@ -10,4 +10,20 @@ contract ClickCounter{
     {
         counter ++;
     }
-}
+
+    function reset() public {
+        counter = 0;
+    }
+
+    function decrease() public {
+        require(counter > 0, "Counter cannot be negative");
+        counter--;
+    }
+
+    function getCounter() public view returns (uint256) {
+        return counter;
+    }
+
+    function clickMultiple(uint256 times) public {
+        counter += times;
+    }
